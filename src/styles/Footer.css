@@ -1,0 +1,15 @@
+.footer {
+  background: #121212;
+  color: white;
+  text-align: center;
+  padding: 18px;
+  margin-top: 40px;
+  font-size: 16px;
+  border-top: 2px solid #00d8ff;
+  box-shadow: 0 -2px 10px rgba(0, 216, 255, 0.2);
+}
+
+.footer:hover {
+  color: #00d8ff;
+  transition: 0.3s;
+}

@@ -1,0 +1,35 @@
+.details-page {
+  max-width: 1000px;
+  margin: 30px auto;
+  background: #1e1e1e;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.details-page img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+
+.details-content {
+  padding: 25px;
+}
+
+.details-content h1 {
+  margin-bottom: 20px;
+}
+
+.details-content p {
+  margin-bottom: 12px;
+}
+
+.play-btn {
+  display: inline-block;
+  margin-top: 20px;
+  background: #00d8ff;
+  color: black;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+}
