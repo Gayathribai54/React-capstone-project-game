@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Navbar from "../components/Navbar";
 import "../styles/Profile.css";
-import Footer from "../components/Footer.jsx";
+
 function Profile() {
   const [form, setForm] = useState(() => {
     const profile = JSON.parse(
@@ -27,6 +27,39 @@ function Profile() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    // Name Validation
+    if (form.name.trim().length < 3) {
+      alert(
+        "Name must contain at least 3 characters"
+      );
+      return;
+    }
+
+    // Email Validation
+    const emailPattern =
+      /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailPattern.test(form.email)) {
+      alert("Please enter a valid email");
+      return;
+    }
+
+    // Genre Validation
+    if (!form.genre.trim()) {
+      alert(
+        "Favorite Genre cannot be empty"
+      );
+      return;
+    }
+
+    // Bio Validation
+    if (form.bio.trim().length < 10) {
+      alert(
+        "Bio must contain at least 10 characters"
+      );
+      return;
+    }
+
     localStorage.setItem(
       "profile",
       JSON.stringify(form)
@@ -40,12 +73,13 @@ function Profile() {
   return (
     <div className="profile-page">
       <Navbar />
+
       <h1>🎮 Gamer Profile</h1>
 
       <form onSubmit={handleSubmit}>
         <input
           type="text"
-          placeholder="Name"
+          placeholder="Enter Name"
           value={form.name}
           onChange={(e) =>
             setForm({
@@ -57,7 +91,7 @@ function Profile() {
 
         <input
           type="email"
-          placeholder="Email"
+          placeholder="Enter Email"
           value={form.email}
           onChange={(e) =>
             setForm({
@@ -80,7 +114,7 @@ function Profile() {
         />
 
         <textarea
-          placeholder="Bio"
+          placeholder="Tell us about yourself..."
           value={form.bio}
           onChange={(e) =>
             setForm({
@@ -120,7 +154,6 @@ function Profile() {
           </p>
         </div>
       )}
-      <Footer />
     </div>
   );
 }
